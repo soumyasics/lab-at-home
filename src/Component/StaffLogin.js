@@ -1,0 +1,109 @@
+import React, { useEffect, useState } from 'react'
+import Nav from './Nav'
+import { useNavigate } from 'react-router-dom'
+import axiosInstance from './BaseUrl'
+
+
+function StaffLogin() {
+
+    const[login,setLogin]=useState({
+        email:'',
+        password:''
+    })
+    const changehandleSubmit  = (a)=> {
+        setLogin({...login,[a.target.name]:a.target.value})
+        
+      }
+      useEffect(() =>{
+        console.log(login);
+      })
+      const navigate=useNavigate();
+      const submitt=(b)=>{
+        // console.log('submitted')
+        b.preventDefault()
+        axiosInstance.post('/loginStaff',login)
+        .then((result)=>{
+          console.log('data entered',result)
+          if (result.status==200) {
+            navigate('/staff_home')
+            localStorage.setItem("staffid", result.data.user._id);
+            alert('login Sucessfully')
+
+          }
+          else{
+            alert('login failed')
+          }
+        })
+        .catch((error)=>{
+          console.log('error',error)
+          alert('login failed')
+
+        })
+      }
+
+  return (
+    <div>
+      <Nav/>
+      <div class="container">
+        <div class="row" style={{marginTop:'5rem',marginBottom:'10rem'}}>
+            <div class="col-lg-3 col-md-2"></div>
+            <div class="col-lg-6 col-md-8 login-box">
+                <div class="col-lg-12 login-key">
+                    <i class="fa fa-key" aria-hidden="true"></i>
+                </div>
+                <div class="col-lg-12 login-title mb-5 mt-5">
+                    <h1>STAFF LOGIN</h1>
+                </div>
+
+                <div class="col-lg-12 login-form">
+                    <div class="col-lg-12 login-form">
+                        <form onSubmit={submitt}>
+                            <div class="form-group mb-3">
+                                <label class="form-control-label mb-2">USER EMAIL</label>
+                                <input 
+                                name='email'
+                                type="email" 
+                                class="form-control"
+                                value={login.username}
+                                onChange={changehandleSubmit}/>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="form-control-label mb-2">PASSWORD</label>
+                                <input 
+                                name='password'
+                                type="password" 
+                                class="form-control" 
+                                value={login.password}
+                                 onChange={changehandleSubmit}
+                                />
+                            </div>
+
+                            <div class="col-lg-12 loginbttm">
+                                <div class="col-lg-6 login-btm login-text">
+                                  
+                                </div>
+                                <div class="col-lg-12 login-btm login-button mt-2">
+                                   
+                                 <button type="submit" class="btn btn-success">LOGIN</button>
+                                
+                               
+                                </div>
+                                </div>
+                            
+                        </form>
+                    </div>
+                </div>
+                {/* <div class="col-lg-3 col-md-2"></div> */}
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+    </div>
+  )
+}
+
+export default StaffLogin
