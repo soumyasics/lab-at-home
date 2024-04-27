@@ -75,7 +75,6 @@ function App() {
         <Route exact path='/' element={ <Home/>}/>
         <Route exact path='/Home' element={<Home/>}/>
         <Route exact path='/about' element={<AboutCall/>}/>
-        <Route exact path='/appointment/:id' element={<Appointment/>}/>
         <Route exact path='/Doctorlogin' element={<Doctorlogin/>}/>
         <Route exact path='/Lablogin' element={<Lab/>}/>
         <Route exact path='/Lab_forgot_pass' element={<LabForgotPass/>}/>
@@ -88,44 +87,35 @@ function App() {
         <Route exact path="/DocHome" element={<DocHome/>}/>
         <Route exact path="/DocProfView" element={<DocProfView/>}/>
         <Route exact path="/DocProfEdit" element={<DocProfEdit/>}/>
-        <Route exact path="/doc_appointments" element={<DocAppointmnts/>}/>
-        <Route exact path="/doc_appointments_req" element={<DocAcceptAppointmentReq/>}/>
+       
         <Route exact path="/Doc_forgot_pass" element={<DocForgotPass/>}/>
         <Route exact path="/LabHome" element={<LabHome/>}/>
-        <Route exact path="/LabResult" element={<LabViewResults/>}/>
+     
         <Route exact path="/LabProfView" element={<LabProfView/>}/>
         <Route exact path="/LabProfEdit" element={<LabProfEdit/>}/>
         <Route exact path="/CustHome" element={<CustHome/>}/>
         <Route exact path="/view_labs" element={<UserLabView/>}/>
         <Route exact path="/CustProfView" element={<CustProfView/>}/>
         <Route exact path="/CustEditView" element={<CustEditView/>}/>
-        <Route exact path="/custAppointments" element={<CustViewAppointmnt/>}/>
+    
         <Route exact path="/admin_home" element={<Adminview/>}/>
         <Route exact path="/admin_docView" element={<AdminDocView/>}/>
         <Route exact path="/admin_labView" element={<AdminLabView/>}/>
-        <Route exact path="/admin_testView/:id" element={<AdminViewTestByLab/>}/>
+  
         <Route exact path="/admin_req" element={<AdminViewReq/>}/>
         <Route exact path="/user_forgot_pass" element={<UserForgotPass/>}/>
-        <Route exact path="/lab_add_test" element={<LabAddTest/>}/>
+
         <Route exact path="/lab_add_staff" element={<LabAddStaff/>}/>
-        <Route exact path="/lab_view_test" element={<Lab_View_Test/>}/>
+     
         <Route exact path="/lab_view_staff" element={<LabViewStaff/>}/>
-        <Route exact path="/lab_edit_test/:id" element={<LabEditTest/>}/>
+      
         <Route exact path="/lab_edit_staff/:id" element={<LabEditStaff/>}/>
-        <Route exact path="/user_labTests/:id" element={<UserLabTests/>}/>
-        <Route exact path="/user_bookTests/:id" element={<UserBookTest/>}/>
-        <Route exact path="/user_payment/:id/:value/:price" element={<UserPayment/>}/>
-        <Route exact path="/view_doctors" element={<UserDrView/>}/>
-        <Route exact path="/custBookings" element={<UserBookings/>}/>
-        <Route exact path="/custResults" element={<UserViewResult/>}/>
-        <Route exact path="/cust_detailed_result/:id" element={<CustomerViewDetailedResult/>}/>
+
         <Route exact path="/Staff_login" element={<StaffLogin/>}/>
         <Route exact path="/staff_home" element={<StaffHome/>}/>
-        <Route exact path="/staff_viewResults" element={<StaffViewResult/>}/>
+    
         <Route exact path="/staff_profile" element={<StaffProfile/>}/>
-        <Route exact path="/staff_booking" element={<StaffBooking/>}/>
-        <Route exact path="/staff_upcominBookings" element={<StaffUpcomingBookings/>}/>
-        <Route exact path="/staff_add_result/:id/:lid" element={<StaffAddResult/>}/>
+        
       </Routes>
      <Footer/>
     </div>
